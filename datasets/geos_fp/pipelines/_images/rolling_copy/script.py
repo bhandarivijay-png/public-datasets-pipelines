@@ -181,7 +181,13 @@ def delete_temp_pcu_objects(target_bucket: str) -> None:
         object_name = uri.split(target_bucket + "/")[-1]
         if not object_name.startswith("Y"):
             subprocess.check_call(
-                ["gcloud", "storage", "rm", "--recursive", f"gs://{target_bucket}/{object_name}"],
+                [
+                    "gcloud",
+                    "storage",
+                    "rm",
+                    "--recursive",
+                    f"gs://{target_bucket}/{object_name}",
+                ],
             )
 
 
